@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" >
+<meta name="viewport" content="width=device-width,initial-scale=1.0" >
+<title>BLUEANT</title>
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+</head>
+
+<style>
+*{
+	margin:0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+ .main-content{
+	 position: relative;
+	 top: 0;
+	 min-height: 100vh;
+	 left: 8px;
+	 transition: all 0.5s ease;
+	 width: calc(100% - 2px);
+	
+ }
+ 
+ body {
+  margin:0;
+  padding:0;
+  font-family: sans-serif;
+  background: #ffff;
+}
+  
+  .panel {
+  position: absolute;
+  top: 16px;
+  right: 15px;
+  left: 23px;
+  width: 96%; 
+  height: 94vh;
+  padding: 20px;
+  background: #ffff ;
+  border-radius: 20px; 
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); 
+  transition: 0.5s ease;
+  
+}
+
+.button-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 14px;
+    margin-right: 33px;
+}
+.back-button {
+    position: absolute;
+    top: 25px; 
+    right: 40px; 
+    background-color: rgb(0, 128, 192);
+    color: #ffffff;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 18px;
+    width: 125px;
+    height: 38px;
+    padding-top: 8px;
+    text-decoration: none; 
+}
+
+.container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-top:65px;
+    padding-left:830px;
+}
+
+
+  body {
+            font-family: Arial, sans-serif;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: rgb(0, 128, 192);
+            color: white;
+            padding: 10px;
+            text-align: left;
+        }
+
+        td {
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+        
+</style>
+<body>
+	
+
+
+<div class="main-content">
+	
+	<div class="container">
+		<div class="panel">
+		<form method="post" action="saveVendor">
+		<div style="display:inline-flex;">	
+	<p style="font-family:unset;margin-top: 14px;margin-left: 23px;font-size: 30px;color: #0f99ce;">Vendor Registration</p><br/>
+		<div class="button-container">
+    		<a href="/adminBay" class="back-button">Back</a>
+		</div>
+		</div> 
+		<hr  /><br/>
+		<div style="display: inline-flex;">
+		<output style="font-size: 23px;padding-right:10px;">Vendor Name : </output>
+		<textarea id="textArea" name="vendorName" 
+		style="height: 31px;width: 280px;padding-left: 8px;font-size: 18px;" ></textarea>
+		
+		<output style="font-size: 23px;padding-right:10px;padding-left:61px">GST Reg.No : </output>
+		<textarea id="textArea" name="gstRegNo" 
+		style="height: 31px;width: 280px;padding-left: 8px;font-size: 18px;" ></textarea>
+		
+		<output style="font-size: 23px;padding-right:10px;padding-left:46px">Contact No : </output>
+		<textarea id="textArea" name="contactNo" 
+		style="height: 31px;width: 280px;padding-left: 8px;font-size: 18px;" ></textarea>
+		 </div>
+		 
+		 <div style="display: inline-flex;padding-top: 15px;">
+		<output style="font-size: 23px;padding-right:10px;padding-left: 59px;">Country : </output>
+		<textarea id="textArea" name="country" 
+		style="height: 31px;width: 280px;padding-left: 8px;font-size: 18px;" ></textarea>
+		
+		<output style="font-size: 23px;padding-right:10px;padding-left:141px">State : </output>
+		<textarea id="textArea" name="state" 
+		style="height: 31px;width: 280px;padding-left: 8px;font-size: 18px;" ></textarea>
+		
+		<output style="font-size: 23px;padding-right:10px;padding-left:98px">Distict : </output>
+		<textarea id="textArea" name="district" 
+		style="height: 31px;width: 280px;padding-left: 8px;font-size: 18px;" ></textarea>
+		 </div>
+		 
+		 <div style="display: inline-flex;padding-top: 15px;">
+		<output style="font-size: 23px;padding-right:10px;padding-left: 55px;">Address : </output>
+		<textarea id="textArea" name="address" 
+		style="height: 90px;width: 286px;padding-left: 8px;font-size: 18px;" ></textarea>
+			
+			<div class="container">
+			<button id="save" type="submit" 
+		      style="border-radius: 10px;background-color:#0f99ce;color: #ffff;font-size:18px;
+		      border: none;width:125px;height:38px;">SAVE</button>
+			 </div> 
+		 </div>
+		 
+		 <div style="padding-top: 15px;">
+			 
+			 <table>
+        <thead>
+            <tr>
+                <th>Vendor Name</th>
+                <th>GST No</th>
+                <th>ContactNo</th>
+                <th>Address</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="sellers : ${vendors}">
+                <td th:text="${sellers.vendorName}"></td>
+                <td th:text="${sellers.gstRegNo}"></td>
+                <td th:text="${sellers.contactNo}"></td>
+                <td th:text="${sellers.address}"></td>
+            </tr>
+        </tbody>
+    </table>
+			 
+		 </div>
+		 
+		 </form>
+		</div>
+	</div>
+</div>
+
+</body>
+
+</html>

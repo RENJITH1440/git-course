@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>BLUEANT</title>
+</head>
+<style>
+	html {
+  height: 100%;
+}
+body {
+  margin:0;
+  padding:0;
+  font-family: sans-serif;
+  background: linear-gradient(#141e30, #243b55);
+}
+
+.login-box {
+  position: absolute;
+  top: 41%;
+  left: 50%;
+  width: 370px;
+  height:270px;
+  padding: 40px;
+  transform: translate(-50%, -50%);
+  background: rgba(0,0,0,.5);
+  box-sizing: border-box;
+  box-shadow: 0 15px 25px rgba(0,0,0,.6);
+  border-radius: 10px;
+}
+
+@keyframes color-blink {
+            0% {
+                background-color: rgb(0, 255, 0); 
+                /*color: white;*/
+            }
+            50% {
+                background-color: rgb(0, 255, 0); 
+            }
+           
+            100% {
+                background-color: rgb(0, 128, 64); 
+                /*color: white;*/
+            }
+        }
+
+        .blinking-button {
+            animation: color-blink 2s infinite; 
+        }
+
+	
+</style>
+
+<div class="login-box">
+  
+  <form action="/blueant" >
+    <div >
+	<h2 style="color: forestgreen;">Registration Success!!!</h2><br/>
+	<div style="padding-top: 30px;padding-left:71px">
+	<button class="blinking-button" 
+	 style="width:140px;height:45px;color:white;text-align:center;
+	 border-radius:10px;font-weight: bold;font-size: 20px;;" >
+     OK 
+    </button>
+    </div>
+    </div>
+		
+    </div>
+  </form>
+</div>
+</html>
